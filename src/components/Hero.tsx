@@ -2,7 +2,7 @@ import { weddingConfig } from "@/lib/wedding-config";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[50vh] flex-col items-center justify-center px-6 text-center">
+    <section className="relative flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
       <div
         aria-hidden
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

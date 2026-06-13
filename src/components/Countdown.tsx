@@ -59,8 +59,8 @@ export default function Countdown() {
         <Unit value={timeLeft.hours} label="Ore" />
         <span className="font-serif text-3xl text-gold/40">:</span>
         <Unit value={timeLeft.minutes} label="Min" />
-        <span className="hidden font-serif text-3xl text-gold/40 sm:inline">:</span>
-        <div className="hidden sm:block">
+        <span className="font-serif text-3xl text-gold/40 inline">:</span>
+        <div className="block">
           <Unit value={timeLeft.seconds} label="Sec" />
         </div>
       </div>
