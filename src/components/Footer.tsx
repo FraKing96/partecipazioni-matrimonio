@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="relative px-6 py-16 text-center">
       <div
         aria-hidden
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-position-[center_25%] bg-no-repeat"
         style={{ backgroundImage: "url('/3.jpg')" }}
       />
       <div aria-hidden className="absolute inset-0 bg-black/50" />
