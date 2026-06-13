@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #faf7f2;
+  --charcoal: #2c2c2c;
+  --sage: #7a8b6f;
+  --gold: #c4a882;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-charcoal: var(--charcoal);
+  --color-sage: var(--sage);
+  --color-gold: var(--gold);
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-lato);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--font-lato), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--gold) 30%, transparent);
+}
