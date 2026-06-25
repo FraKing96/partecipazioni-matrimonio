@@ -247,7 +247,7 @@ body {
 
 .envelope__closed-label {
   position: absolute;
-  inset: auto 0 26%;
+  inset: auto 0 11%;
   z-index: 9;
   display: flex;
   flex-direction: column;
