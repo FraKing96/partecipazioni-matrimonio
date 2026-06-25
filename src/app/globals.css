@@ -29,3 +29,401 @@ body {
 ::selection {
   background: color-mix(in srgb, var(--gold) 30%, transparent);
 }
+
+/* Letter splash — rustic envelope intro */
+.letter-splash {
+  cursor: pointer;
+  perspective: 900px;
+  border: none;
+  padding: 1.5rem;
+  margin: 0;
+  appearance: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      color-mix(in srgb, var(--sage) 35%, #2f4538) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 80% 90%,
+      color-mix(in srgb, var(--sage) 20%, transparent) 0%,
+      transparent 45%
+    ),
+    linear-gradient(
+      165deg,
+      #2f4538 0%,
+      #3a5244 45%,
+      #2d4236 100%
+    );
+}
+
+.letter-splash--exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.letter-splash--glowing {
+  transition: opacity 0.4s ease;
+}
+
+.letter-splash__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.85rem;
+  width: min(92vw, 27rem);
+}
+
+.letter-splash__botanical {
+  position: absolute;
+  width: clamp(4.5rem, 18vw, 7rem);
+  height: clamp(4.5rem, 18vw, 7rem);
+  color: color-mix(in srgb, var(--cream) 35%, var(--sage));
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.letter-splash__botanical--tl {
+  top: max(1rem, env(safe-area-inset-top));
+  left: max(0.75rem, env(safe-area-inset-left));
+}
+
+.letter-splash__botanical--tr {
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(0.75rem, env(safe-area-inset-right));
+  transform: scaleX(-1);
+}
+
+.letter-splash__botanical--bl {
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  left: max(0.75rem, env(safe-area-inset-left));
+  transform: scaleY(-1);
+}
+
+.letter-splash__botanical--br {
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  right: max(0.75rem, env(safe-area-inset-right));
+  transform: scale(-1);
+}
+
+.letter-splash__hint {
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--cream) 70%, transparent);
+  animation: splash-hint-pulse 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes splash-hint-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 10 / 8;
+  opacity: 1;
+  z-index: 2;
+  overflow: hidden;
+  filter: drop-shadow(0 1.15rem 1.65rem color-mix(in srgb, black 26%, transparent));
+  transform-style: preserve-3d;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 11% 2% 4%;
+  z-index: 1;
+  border-radius: 0.18rem;
+  background: color-mix(in srgb, #1f3128 32%, transparent);
+  filter: blur(1.1rem);
+  transform: translateY(1.25rem) scaleX(0.92);
+  opacity: 0.55;
+}
+
+.envelope__shape {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  opacity: 0.98;
+}
+
+.envelope__shape--back {
+  z-index: 2;
+}
+
+.envelope__shape--front {
+  z-index: 8;
+  transition: opacity 0.55s ease 0.65s;
+}
+
+.envelope--opening .envelope__shape--front {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.envelope__svg-body,
+.envelope__svg-fold-left,
+.envelope__svg-fold-right,
+.envelope__svg-flap-open,
+.envelope__svg-flap-closed,
+.envelope__svg-front-pocket {
+  transition:
+    opacity 0.55s ease,
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.envelope__svg-flap-open {
+  opacity: 0;
+}
+
+.envelope__svg-flap-closed {
+  transform-origin: 200px 105px;
+}
+
+.envelope--opening .envelope__svg-flap-closed {
+  opacity: 0;
+  transform: translateY(-44%) scaleY(0.82);
+  pointer-events: none;
+}
+
+.envelope--opening .envelope__svg-flap-open {
+  opacity: 1;
+  transition-delay: 0.08s;
+}
+
+.envelope__card {
+  position: absolute;
+  left: 14%;
+  top: 38%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.55rem;
+  width: 72%;
+  height: 62%;
+  padding: 1.25rem 1rem 1rem;
+  border-radius: 0.35rem 0.35rem 0.08rem 0.08rem;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--cream) 96%, #f0ebe3) 0%,
+      color-mix(in srgb, var(--cream) 90%, #e8e2d8) 100%
+    );
+  box-shadow:
+    0 0.3rem 1rem color-mix(in srgb, black 14%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+  opacity: 0;
+  transform: translateY(28%);
+  transition:
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.75s,
+    opacity 0.65s ease 0.75s;
+  pointer-events: none;
+}
+
+.envelope--opening {
+  overflow: visible;
+}
+
+.envelope--opening .envelope__card {
+  opacity: 1;
+  transform: translateY(-62%);
+  z-index: 5;
+}
+
+.envelope__closed-label {
+  position: absolute;
+  inset: auto 0 26%;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1.25rem;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.envelope--opening .envelope__closed-label,
+.envelope--revealing .envelope__closed-label {
+  opacity: 0;
+}
+
+.envelope__closed-names {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.28rem, 5vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--cream);
+  text-align: center;
+  text-shadow: 0 1px 6px color-mix(in srgb, black 22%, transparent);
+}
+
+.envelope--opening .envelope__svg-body,
+.envelope--opening .envelope__svg-fold-left,
+.envelope--opening .envelope__svg-fold-right,
+.envelope--opening .envelope__svg-front-pocket {
+  transition: opacity 0.8s ease 0.65s, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.envelope--revealing .envelope__card,
+.envelope--revealing .envelope__shape--back,
+.envelope--revealing .envelope__shape--front,
+.envelope--revealing .envelope__closed-label {
+  opacity: 0;
+}
+
+.envelope__reserved {
+  margin-bottom: 0.15rem;
+  font-size: 0.52rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--cream) 80%, transparent);
+}
+
+.envelope--opening .envelope__card .envelope__reserved,
+.envelope--opening .envelope__card .envelope__card-names,
+.envelope--opening .envelope__card .envelope__card-date {
+  color: inherit;
+}
+
+.envelope__card .envelope__reserved {
+  color: color-mix(in srgb, var(--sage) 90%, var(--charcoal));
+}
+
+.envelope__amp {
+  margin: 0 0.3rem;
+  font-style: italic;
+  color: color-mix(in srgb, var(--sage) 80%, var(--charcoal));
+}
+
+.envelope__card-names {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.35rem, 5.2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--charcoal);
+  text-align: center;
+}
+
+.envelope__card-date {
+  margin-top: 0.15rem;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(0.95rem, 3.6vw, 1.15rem);
+  font-style: italic;
+  color: color-mix(in srgb, var(--charcoal) 72%, transparent);
+}
+
+.envelope--revealing {
+  animation: envelope-exit 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.letter-splash__glow {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 1.5rem);
+  z-index: 1;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.1);
+  background: radial-gradient(
+    circle,
+    white 0%,
+    color-mix(in srgb, white 92%, var(--cream)) 24%,
+    color-mix(in srgb, white 50%, transparent) 54%,
+    transparent 74%
+  );
+  filter: blur(3px);
+}
+
+.letter-splash__glow--active {
+  z-index: 20;
+  animation: splash-glow-burst 1.15s cubic-bezier(0.22, 1, 0.36, 1) 2.85s forwards;
+}
+
+.letter-splash__glow--active.letter-splash__glow--full {
+  animation: splash-glow-fade 0.55s ease-out forwards;
+}
+
+@keyframes splash-glow-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1);
+    filter: blur(3px);
+  }
+  40% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(10);
+    filter: blur(10px);
+  }
+  72% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(18);
+    filter: blur(16px);
+  }
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(22);
+    filter: blur(18px);
+  }
+}
+
+@keyframes splash-glow-fade {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(22);
+    filter: blur(18px);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(24);
+    filter: blur(20px);
+  }
+}
+
+@keyframes envelope-exit {
+  to {
+    opacity: 0;
+    transform: scale(1.04) translateY(-2rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter-splash__hint,
+  .envelope--revealing,
+  .letter-splash__glow--active,
+  .letter-splash__glow--active.letter-splash__glow--full {
+    animation: none;
+  }
+}
+
+.content-reveal {
+  animation: content-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

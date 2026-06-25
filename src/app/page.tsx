@@ -4,9 +4,11 @@ import EventDetails from "@/components/EventDetails";
 import RsvpForm from "@/components/RsvpForm";
 import Footer from "@/components/Footer";
 import BackgroundMusic from "@/components/BackgroundMusic";
+import LetterSplash from "@/components/LetterSplash";
 
 export default function Home() {
   return (
+    <LetterSplash>
     <div className="relative overflow-hidden">
       <BackgroundMusic />
 
@@ -50,5 +52,6 @@ export default function Home() {
 
       <Footer />
     </div>
+    </LetterSplash>
   );
 }
