@@ -123,7 +123,7 @@ export default function BackgroundMusic() {
         type="button"
         onClick={toggle}
         aria-label={playing ? "Metti in pausa la musica" : "Riproduci la musica"}
-        className="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-gold/30 bg-cream/90 text-charcoal shadow-sm backdrop-blur-sm transition-colors hover:border-gold/50 hover:bg-white"
+        className="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-pink/30 bg-cream/90 text-charcoal shadow-sm backdrop-blur-sm transition-colors hover:border-sage/50 hover:bg-white"
       >
         {playing ? (
           <svg

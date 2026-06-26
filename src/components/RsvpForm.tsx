@@ -96,8 +96,8 @@ export default function RsvpForm() {
 
   if (status === "success") {
     return (
-      <div className="mx-auto max-w-lg rounded-sm border border-gold/30 bg-white/70 p-10 text-center backdrop-blur-sm">
-        <span className="font-serif text-5xl text-gold">✦</span>
+      <div className="mx-auto max-w-lg rounded-sm border border-pink/30 bg-white/70 p-10 text-center backdrop-blur-sm">
+        <span className="font-serif text-5xl text-pink">✦</span>
         <h3 className="mt-4 font-serif text-2xl text-charcoal">Grazie!</h3>
         <p className="mt-3 text-charcoal/70">
           La tua risposta è stata registrata. Non vediamo l&apos;ora di festeggiare
@@ -117,7 +117,7 @@ export default function RsvpForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mx-auto max-w-lg space-y-6 rounded-sm border border-gold/20 bg-white/70 p-8 backdrop-blur-sm sm:p-10"
+      className="mx-auto max-w-lg space-y-6 rounded-sm border border-pink/20 bg-white/70 p-8 backdrop-blur-sm sm:p-10"
     >
       <Field label="Nome e cognome" required>
         <input
@@ -137,8 +137,8 @@ export default function RsvpForm() {
               key={value}
               className={`flex flex-1 cursor-pointer items-center justify-center rounded-sm border px-4 py-3 text-sm transition-colors ${
                 form.attending === value
-                  ? "border-gold bg-gold/10 text-charcoal"
-                  : "border-gold/20 text-charcoal/60 hover:border-gold/40"
+                  ? "border-pink bg-pink/15 text-charcoal"
+                  : "border-pink/20 text-charcoal/60 hover:border-pink/40"
               }`}
             >
               <input
@@ -229,7 +229,7 @@ function Field({
     <div>
       <label className="mb-2 block text-xs uppercase tracking-[0.15em] text-sage">
         {label}
-        {required && <span className="text-gold"> *</span>}
+        {required && <span className="text-pink"> *</span>}
       </label>
       {children}
     </div>
@@ -237,4 +237,4 @@ function Field({
 }
 
 const inputClass =
-  "w-full rounded-sm border border-gold/20 bg-cream/50 px-4 py-3 text-charcoal placeholder:text-charcoal/30 outline-none transition-colors focus:border-gold/50 focus:bg-white";
+  "w-full rounded-sm border border-pink/20 bg-cream/50 px-4 py-3 text-charcoal placeholder:text-charcoal/30 outline-none transition-colors focus:border-sage/50 focus:bg-white";

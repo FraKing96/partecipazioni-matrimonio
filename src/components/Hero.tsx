@@ -16,16 +16,16 @@ export default function Hero() {
 
       <h1 className="relative font-serif text-6xl font-light leading-tight text-cream sm:text-8xl">
         {weddingConfig.bride}
-        <span className="mx-4 inline-block font-normal text-gold">&</span>
+        <span className="mx-4 inline-block font-normal text-pink">&</span>
         {weddingConfig.groom}
       </h1>
 
       <div className="relative my-10 flex items-center gap-4">
-        <span className="h-px w-16 bg-gold/60" />
+        <span className="h-px w-16 bg-pink/70" />
         <span className="font-serif text-xl italic text-cream/90 sm:text-2xl">
           {weddingConfig.dateLabel}
         </span>
-        <span className="h-px w-16 bg-gold/60" />
+        <span className="h-px w-16 bg-pink/70" />
       </div>
 
       <p className="relative max-w-md text-base leading-relaxed text-cream/75 sm:text-lg">

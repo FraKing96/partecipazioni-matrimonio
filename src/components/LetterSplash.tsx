@@ -41,24 +41,24 @@ function EnvelopeDefs({ idPrefix }: { idPrefix: string }) {
   return (
     <defs>
       <linearGradient id={`${idPrefix}-satin-green-back`} x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%" stopColor="#7c9275" />
-        <stop offset="55%" stopColor="#657b5e" />
-        <stop offset="100%" stopColor="#53644d" />
+        <stop offset="0%" stopColor="#fce8e8" />
+        <stop offset="55%" stopColor="#f9dede" />
+        <stop offset="100%" stopColor="#f6d4d4" />
       </linearGradient>
       <linearGradient id={`${idPrefix}-satin-green-dark`} x1="0%" y1="20%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#5c7156" />
-        <stop offset="55%" stopColor="#53664e" />
-        <stop offset="100%" stopColor="#4a5a46" />
+        <stop offset="0%" stopColor="#d99898" />
+        <stop offset="55%" stopColor="#d28f8f" />
+        <stop offset="100%" stopColor="#c88282" />
       </linearGradient>
       <linearGradient id={`${idPrefix}-satin-green-light`} x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#7a9173" />
-        <stop offset="72%" stopColor="#6b8264" />
-        <stop offset="100%" stopColor="#647c5e" />
+        <stop offset="0%" stopColor="#efc0c0" />
+        <stop offset="72%" stopColor="#e8b4b4" />
+        <stop offset="100%" stopColor="#e2aaaa" />
       </linearGradient>
       <linearGradient id={`${idPrefix}-satin-green-front`} x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%" stopColor="#708866" />
-        <stop offset="60%" stopColor="#5f7358" />
-        <stop offset="100%" stopColor="#52624d" />
+        <stop offset="0%" stopColor="#d49090" />
+        <stop offset="60%" stopColor="#cc8686" />
+        <stop offset="100%" stopColor="#c47c7c" />
       </linearGradient>
       <linearGradient id={`${idPrefix}-satin-sheen`} x1="20%" y1="0%" x2="80%" y2="100%">
         <stop offset="0%" stopColor="white" stopOpacity="0.06" />
@@ -83,7 +83,7 @@ function EnvelopeDefs({ idPrefix }: { idPrefix: string }) {
         <feBlend in="SourceGraphic" in2="grain" mode="multiply" />
       </filter>
       <filter id={`${idPrefix}-envelope-crease-shadow`} x="-10%" y="-10%" width="120%" height="120%">
-        <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#233227" floodOpacity="0.22" />
+        <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#c88282" floodOpacity="0.2" />
       </filter>
     </defs>
   );
@@ -131,7 +131,7 @@ function EnvelopeShapeBack({ isOpening }: { isOpening: boolean }) {
             <path
               d={`M0 ${ENVELOPE_HINGE} L200 ${ENVELOPE_CENTER} L${ENVELOPE_WIDTH} ${ENVELOPE_HINGE}`}
               fill="none"
-              stroke="rgba(255,255,255,0.13)"
+              stroke="rgba(255,255,255,0.35)"
               strokeWidth="1"
             />
           </>
@@ -159,9 +159,20 @@ function EnvelopeShapeBack({ isOpening }: { isOpening: boolean }) {
               filter={`url(#${idPrefix}-envelope-crease-shadow)`}
             />
             <path
+              className="envelope__svg-front-pocket-back"
+              d={`M0 ${ENVELOPE_FLOOR} L200 ${ENVELOPE_CENTER} L${ENVELOPE_WIDTH} ${ENVELOPE_FLOOR} Z`}
+              fill={`url(#${idPrefix}-satin-green-front)`}
+            />
+            <path
+              d={`M0 ${ENVELOPE_FLOOR} L200 ${ENVELOPE_CENTER} L${ENVELOPE_WIDTH} ${ENVELOPE_FLOOR}`}
+              fill="none"
+              stroke="rgba(180,100,100,0.28)"
+              strokeWidth="1"
+            />
+            <path
               d={`M0 ${ENVELOPE_HINGE} L200 ${ENVELOPE_CENTER} L${ENVELOPE_WIDTH} ${ENVELOPE_HINGE}`}
               fill="none"
-              stroke="rgba(255,255,255,0.13)"
+              stroke="rgba(255,255,255,0.35)"
               strokeWidth="1"
             />
           </>
@@ -182,7 +193,7 @@ function EnvelopeShapeBack({ isOpening }: { isOpening: boolean }) {
             : `M0 ${ENVELOPE_HINGE} H${ENVELOPE_WIDTH} V${ENVELOPE_FLOOR} H0 Z`
         }
         fill={`url(#${idPrefix}-satin-sheen)`}
-        opacity="0.55"
+        opacity={isOpening ? 0.28 : 0.55}
         pointerEvents="none"
       />
     </svg>
@@ -212,7 +223,7 @@ function EnvelopeShapeFront() {
         <path
           d={`M0 ${ENVELOPE_FLOOR} L200 ${ENVELOPE_CENTER} L${ENVELOPE_WIDTH} ${ENVELOPE_FLOOR}`}
           fill="none"
-          stroke="rgba(35,50,39,0.16)"
+          stroke="rgba(180,100,100,0.28)"
           strokeWidth="1"
         />
       </g>

@@ -16,13 +16,13 @@ export default function Home() {
       <Countdown />
 
       <div className="mx-auto max-w-5xl px-6">
-        <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-pink/35 to-transparent" />
       </div>
 
       <EventDetails />
 
       <div className="mx-auto max-w-5xl px-6">
-        <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-pink/35 to-transparent" />
       </div>
 
       <section id="rsvp" className="px-6 py-20">

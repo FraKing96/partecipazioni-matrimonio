@@ -10,8 +10,8 @@ type EventCardProps = {
 
 function EventCard({ time, label, venue, address, mapsUrl }: EventCardProps) {
   return (
-    <div className="flex flex-col items-center rounded-sm border border-gold/20 bg-white/75 p-8 text-center shadow-sm backdrop-blur-sm">
-      <span className="font-serif text-3xl text-gold">{time}</span>
+    <div className="flex flex-col items-center rounded-sm border border-pink/25 bg-white/75 p-8 text-center shadow-sm backdrop-blur-sm">
+      <span className="font-serif text-3xl font-medium text-charcoal">{time}</span>
       <h3 className="mt-2 font-serif text-xl text-charcoal">{label}</h3>
       <p className="mt-4 font-medium text-charcoal">{venue}</p>
       <p className="mt-1 text-sm text-charcoal/60">{address}</p>
@@ -19,7 +19,7 @@ function EventCard({ time, label, venue, address, mapsUrl }: EventCardProps) {
         href={mapsUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-6 text-xs uppercase tracking-[0.2em] text-sage underline-offset-4 transition-colors hover:text-gold hover:underline"
+        className="mt-6 text-xs uppercase tracking-[0.2em] text-sage underline-offset-4 transition-colors hover:text-pink hover:underline"
       >
         Apri mappa
       </a>

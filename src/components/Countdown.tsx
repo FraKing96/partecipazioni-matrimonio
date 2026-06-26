@@ -55,11 +55,11 @@ export default function Countdown() {
       </p>
       <div className="flex justify-center gap-6 sm:gap-10">
         <Unit value={timeLeft.days} label="Giorni" />
-        <span className="font-serif text-3xl text-gold/40">:</span>
+        <span className="font-serif text-3xl text-pink/50">:</span>
         <Unit value={timeLeft.hours} label="Ore" />
-        <span className="font-serif text-3xl text-gold/40">:</span>
+        <span className="font-serif text-3xl text-pink/50">:</span>
         <Unit value={timeLeft.minutes} label="Min" />
-        <span className="font-serif text-3xl text-gold/40 inline">:</span>
+        <span className="font-serif text-3xl text-pink/50 inline">:</span>
         <div className="block">
           <Unit value={timeLeft.seconds} label="Sec" />
         </div>

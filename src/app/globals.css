@@ -1,14 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #faf7f2;
-  --charcoal: #2c2c2c;
-  --sage: #7a8b6f;
-  --gold: #c4a882;
+  --cream: #f5f1e9;
+  --beige: #ede4db;
+  --pink: #f9c9c9;
+  --lemon: #f9f1b3;
+  --charcoal: #3f3a36;
+  --sage: #a3b168;
+  --gold: var(--lemon);
 }
 
 @theme inline {
   --color-cream: var(--cream);
+  --color-beige: var(--beige);
+  --color-pink: var(--pink);
+  --color-lemon: var(--lemon);
   --color-charcoal: var(--charcoal);
   --color-sage: var(--sage);
   --color-gold: var(--gold);
@@ -27,10 +33,10 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--gold) 30%, transparent);
+  background: color-mix(in srgb, var(--pink) 45%, transparent);
 }
 
-/* Letter splash — rustic envelope intro */
+/* Letter splash — wedding palette intro */
 .letter-splash {
   cursor: pointer;
   perspective: 900px;
@@ -40,20 +46,25 @@ body {
   appearance: none;
   background:
     radial-gradient(
-      ellipse at 50% 0%,
-      color-mix(in srgb, var(--sage) 35%, #2f4538) 0%,
-      transparent 55%
+      ellipse at 18% 12%,
+      color-mix(in srgb, var(--pink) 70%, white) 0%,
+      transparent 52%
     ),
     radial-gradient(
-      ellipse at 80% 90%,
-      color-mix(in srgb, var(--sage) 20%, transparent) 0%,
-      transparent 45%
+      ellipse at 82% 88%,
+      color-mix(in srgb, var(--lemon) 55%, white) 0%,
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 50% 100%,
+      color-mix(in srgb, var(--sage) 18%, transparent) 0%,
+      transparent 55%
     ),
     linear-gradient(
       165deg,
-      #2f4538 0%,
-      #3a5244 45%,
-      #2d4236 100%
+      var(--beige) 0%,
+      var(--cream) 42%,
+      color-mix(in srgb, var(--pink) 22%, var(--cream)) 100%
     );
 }
 
@@ -80,8 +91,8 @@ body {
   position: absolute;
   width: clamp(4.5rem, 18vw, 7rem);
   height: clamp(4.5rem, 18vw, 7rem);
-  color: color-mix(in srgb, var(--cream) 35%, var(--sage));
-  opacity: 0.55;
+  color: color-mix(in srgb, var(--sage) 75%, var(--charcoal));
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -112,7 +123,7 @@ body {
   font-size: 0.68rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--cream) 70%, transparent);
+  color: color-mix(in srgb, var(--charcoal) 55%, transparent);
   animation: splash-hint-pulse 2.2s ease-in-out infinite;
   pointer-events: none;
 }
@@ -134,7 +145,7 @@ body {
   opacity: 1;
   z-index: 2;
   overflow: hidden;
-  filter: drop-shadow(0 1.15rem 1.65rem color-mix(in srgb, black 26%, transparent));
+  filter: drop-shadow(0 1.15rem 1.65rem color-mix(in srgb, var(--pink) 35%, transparent));
   transform-style: preserve-3d;
 }
 
@@ -144,7 +155,7 @@ body {
   inset: 11% 2% 4%;
   z-index: 1;
   border-radius: 0.18rem;
-  background: color-mix(in srgb, #1f3128 32%, transparent);
+  background: color-mix(in srgb, var(--pink) 35%, transparent);
   filter: blur(1.1rem);
   transform: translateY(1.25rem) scaleX(0.92);
   opacity: 0.55;
@@ -166,10 +177,10 @@ body {
 
 .envelope__shape--front {
   z-index: 8;
-  transition: opacity 0.55s ease 0.65s;
+  transition: opacity 0.45s ease;
 }
 
-.envelope--opening .envelope__shape--front {
+.envelope--revealing .envelope__shape--front {
   opacity: 0;
   pointer-events: none;
 }
@@ -179,7 +190,8 @@ body {
 .envelope__svg-fold-right,
 .envelope__svg-flap-open,
 .envelope__svg-flap-closed,
-.envelope__svg-front-pocket {
+.envelope__svg-front-pocket,
+.envelope__svg-front-pocket-back {
   transition:
     opacity 0.55s ease,
     transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
@@ -221,8 +233,8 @@ body {
   background:
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--cream) 96%, #f0ebe3) 0%,
-      color-mix(in srgb, var(--cream) 90%, #e8e2d8) 100%
+      color-mix(in srgb, var(--cream) 96%, white) 0%,
+      color-mix(in srgb, var(--beige) 88%, white) 100%
     );
   box-shadow:
     0 0.3rem 1rem color-mix(in srgb, black 14%, transparent),
@@ -267,9 +279,9 @@ body {
   font-size: clamp(1.28rem, 5vw, 1.65rem);
   font-weight: 600;
   line-height: 1.1;
-  color: var(--cream);
+  color: var(--charcoal);
   text-align: center;
-  text-shadow: 0 1px 6px color-mix(in srgb, black 22%, transparent);
+  text-shadow: 0 1px 0 color-mix(in srgb, white 40%, transparent);
 }
 
 .envelope--opening .envelope__svg-body,
@@ -291,7 +303,7 @@ body {
   font-size: 0.52rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--cream) 80%, transparent);
+  color: color-mix(in srgb, var(--charcoal) 62%, transparent);
 }
 
 .envelope--opening .envelope__card .envelope__reserved,
@@ -307,7 +319,7 @@ body {
 .envelope__amp {
   margin: 0 0.3rem;
   font-style: italic;
-  color: color-mix(in srgb, var(--sage) 80%, var(--charcoal));
+  color: color-mix(in srgb, var(--pink) 55%, var(--charcoal));
 }
 
 .envelope__card-names {
@@ -344,10 +356,10 @@ body {
   transform: translate(-50%, -50%) scale(0.1);
   background: radial-gradient(
     circle,
-    white 0%,
-    color-mix(in srgb, white 92%, var(--cream)) 24%,
-    color-mix(in srgb, white 50%, transparent) 54%,
-    transparent 74%
+    color-mix(in srgb, var(--lemon) 92%, white) 0%,
+    color-mix(in srgb, var(--pink) 55%, var(--cream)) 28%,
+    color-mix(in srgb, var(--cream) 70%, transparent) 58%,
+    transparent 78%
   );
   filter: blur(3px);
 }
