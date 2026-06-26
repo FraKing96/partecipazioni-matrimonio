@@ -37,13 +37,6 @@ export default function Home() {
             Compila il modulo qui sotto per farci sapere se potrai unirti a noi
             in questo giorno speciale.
           </p>
-          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-charcoal/50">
-            Abbiamo immaginato la festa come una serata da vivere insieme, in
-            tranquillità e leggerezza, riservata agli adulti. Vi chiediamo con
-            affetto di non portare bambini: non per mancanza di tenerezza verso
-            i più piccoli, ma per regalarci — e regalarvi — un momento speciale
-            pensato per stare insieme in questo modo.
-          </p>
           <div className="mt-12">
             <RsvpForm />
           </div>

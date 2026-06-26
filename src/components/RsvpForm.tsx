@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import { weddingConfig } from "@/lib/wedding-config";
 
-const MAX_GUESTS = 3;
+const MAX_GUESTS = 4;
 
 type FormState = {
   name: string;

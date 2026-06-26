@@ -3,7 +3,7 @@ import { saveRsvp } from "@/lib/rsvp-store";
 import { sendRsvpNotification } from "@/lib/send-rsvp-email";
 import type { RsvpPayload } from "@/types/rsvp";
 
-const MAX_GUESTS = 3;
+const MAX_GUESTS = 4;
 
 function validate(body: unknown): body is RsvpPayload {
   if (!body || typeof body !== "object") return false;

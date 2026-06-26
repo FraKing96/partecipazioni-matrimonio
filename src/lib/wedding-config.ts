@@ -4,7 +4,7 @@ export const weddingConfig = {
   date: "2027-05-20",
   dateLabel: "20 maggio 2027",
   rsvpDeadline: "2027-04-30",
-  rsvpDeadlineLabel: "30 Aprile 2027",
+  rsvpDeadlineLabel: "01 Aprile 2027",
   ceremony: {
     time: "15:00",
     label: "Cerimonia",
@@ -17,7 +17,7 @@ export const weddingConfig = {
     label: "Ricevimento",
     venue: "Agriturismo Cascina Rosio",
     address: "Agriturismo Cascina Rosio, 20080 Albairate MI",
-    mapsUrl: "https://maps.app.goo.gl/Db8Hv3PzV7iE7VoBA",
+    mapsUrl: "https://maps.app.goo.gl/cBNvWqKgEuyAgYpU7?g_st=iw",
   },
   dressCode: "Elegante",
   message:

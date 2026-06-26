@@ -42,3 +42,4 @@ next-env.d.ts
 
 # rsvp data (contains guest info)
 /data/rsvps.json
+/data/rsvps.xlsx

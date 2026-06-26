@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { syncRsvpsToExcel } from "@/lib/rsvp-excel";
 import type { RsvpRecord, RsvpPayload } from "@/types/rsvp";
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -44,5 +45,6 @@ export async function saveRsvp(payload: RsvpPayload): Promise<RsvpRecord> {
   };
   rsvps.push(record);
   await fs.writeFile(DATA_FILE, JSON.stringify(rsvps, null, 2), "utf-8");
+  await syncRsvpsToExcel(rsvps);
   return record;
 }
