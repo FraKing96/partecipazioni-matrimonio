@@ -15,12 +15,12 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Nicole & Francesco — 10 Giugno 2027",
+  title: "Nicole & Francesco — 20 Maggio 2027",
   description:
     "Siamo felici di invitarvi al nostro matrimonio. Confermate la vostra partecipazione.",
   openGraph: {
     title: "Nicole & Francesco — Matrimonio",
-    description: "10 Giugno 2027 — Conferma la tua partecipazione",
+    description: "20 Maggio 2027 — Conferma la tua partecipazione",
     type: "website",
   },
 };
